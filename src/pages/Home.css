@@ -1,0 +1,10 @@
+ion-title {
+	color: blue;
+}
+
+/* svg lets you define patterns to use for things such as strokes in its defs tag */
+/* we made such a pattern when we rendered a GradientSVG react component */
+/* we just use it here */
+svg.CircularProgressbar .CircularProgressbar-path {
+	stroke: url(#mygradient);
+}
