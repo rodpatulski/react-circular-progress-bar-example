@@ -8,3 +8,13 @@ ion-title {
 svg.CircularProgressbar .CircularProgressbar-path {
 	stroke: url(#mygradient);
 }
+
+
+.container {
+	width:200px;
+	height:200px;
+}
+.container strong {
+	display: block;
+	text-align: center;
+}

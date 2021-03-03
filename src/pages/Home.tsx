@@ -2,12 +2,12 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import GradientSVG from '../components/GradientSVG';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const Home: React.FC = () => {
 
-	const percentage = 66;
+	const percentage = 100;
 
 	return (
 		<IonPage>
@@ -24,13 +24,35 @@ const Home: React.FC = () => {
 				</IonHeader>
 				{/* define a gradient pattern that css will change in the <CircularProgressbar> */}
 				<GradientSVG
-					startColor="red"
-					endColor="blue"
+					startColor="#53599A"
+					endColor="#AEECEF"
 					idCSS={'mygradient'}
-					rotation={90}
+					rotation={0}
 				/>
-				<CircularProgressbar value={percentage} text={`${percentage}%`} />;
-	  </IonContent>
+				<div className="container">
+					<CircularProgressbarWithChildren value={percentage}
+						counterClockwise={true} styles={buildStyles({
+							// Text size
+							textSize: '12px',
+
+							// How long animation takes to go from one percentage to another, in seconds
+							pathTransitionDuration: 0.5,
+
+							// Can specify path transition in more detail, or remove it entirely
+							// pathTransition: 'none',
+
+							// Colors
+							textColor: '#f88',
+							trailColor: 'lightgrey',
+							backgroundColor: '#3e98c7',
+						})}>
+						<div style={{ fontSize: 12, marginTop: -5 }}>
+							<strong>${percentage}</strong>
+							<div className = "fullAmount">out of $500</div>
+  						</div>
+					</CircularProgressbarWithChildren>
+				</div>
+			</IonContent>
 		</IonPage>
 	);
 };
